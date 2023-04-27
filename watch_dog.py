@@ -256,6 +256,7 @@ def push(logo_url, program_name, program_url, platform, message:str, bounty:bool
     if platform == 'hackerone':
         embed = DiscordEmbed(title=type, description=message, color="ffffff")
         embed.set_thumbnail(url=logo_url)
+        embed.add_embed_field(name="Platform:", value="Hackerone", inline=False)
         embed.add_embed_field(name="Program:", value=program_name, inline=False)
         embed.add_embed_field(name="Bounty:", value=bounty, inline=False)
         embed.add_embed_field(name="URL:", value=program_url, inline=False)             
@@ -264,6 +265,7 @@ def push(logo_url, program_name, program_url, platform, message:str, bounty:bool
     elif platform == 'bugcrowd':
         embed = DiscordEmbed(title=type, description=message, color="ff6900")
         embed.set_thumbnail(url=logo_url)
+        embed.add_embed_field(name="Platform:", value="Bugcrowd", inline=False)
         embed.add_embed_field(name="Program:", value=program_name, inline=False)
         embed.add_embed_field(name="Bounty:", value=bounty, inline=False)
         embed.add_embed_field(name="URL:", value=program_url, inline=False)             
@@ -272,6 +274,7 @@ def push(logo_url, program_name, program_url, platform, message:str, bounty:bool
     elif platform == 'intigriti':
         embed = DiscordEmbed(title=type, description=message, color="4c59a8")
         embed.set_thumbnail(url=logo_url)
+        embed.add_embed_field(name="Platform:", value="Intigriti", inline=False)
         embed.add_embed_field(name="Program:", value=program_name, inline=False)
         embed.add_embed_field(name="Bounty:", value=bounty, inline=False)
         embed.add_embed_field(name="URL:", value=program_url, inline=False)             
@@ -280,6 +283,7 @@ def push(logo_url, program_name, program_url, platform, message:str, bounty:bool
     elif platform == 'yeswehack':
         embed = DiscordEmbed(title=type, description=message, color="8f0e0e")
         embed.set_thumbnail(url=logo_url)
+        embed.add_embed_field(name="Platform:", value="YesWeHack", inline=False)
         embed.add_embed_field(name="Program:", value=program_name, inline=False)
         embed.add_embed_field(name="Bounty:", value=bounty, inline=False)
         embed.add_embed_field(name="URL:", value=program_url, inline=False)             
