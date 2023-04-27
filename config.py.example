@@ -1,0 +1,3 @@
+discord_webhook="test"
+mongoHost="mongo"
+mongoPort="27017"

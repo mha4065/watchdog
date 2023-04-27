@@ -3,6 +3,7 @@ import pymongo
 import re
 from time import sleep
 from discord_webhook import DiscordWebhook, DiscordEmbed
+import config
 
 
 platforms = ['hackerone', 'bugcrowd', 'intigriti', 'yeswehack']
@@ -20,7 +21,7 @@ def get_data(url:str):
 
 def insert_db(data:dict, platform:str):
     # Connect to MongoDB client
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    client = pymongo.MongoClient("mongodb://"+config.mongoHost+":"+config.mongoPort+"/")
 
     # Select database and collection
     db = client["bb_programs"]
@@ -41,7 +42,7 @@ def insert_db(data:dict, platform:str):
 
 def check_changes(platform:str):
     # Connect to MongoDB client
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    client = pymongo.MongoClient("mongodb://"+config.mongoHost+":"+config.mongoPort+"/")
 
     # Select database and collection
     db = client["bb_programs"]
@@ -251,7 +252,7 @@ def cleaner(data:dict, platform:str):
     
 
 def push(logo_url, program_name, program_url, platform, message:str, bounty:bool, type:str):
-    webhook = DiscordWebhook(url="<YOUR WEBHOOK>")
+    webhook = DiscordWebhook(url=config.discord_webhook)
     if platform == 'hackerone':
         embed = DiscordEmbed(title=type, description=message, color="ffffff")
         embed.set_thumbnail(url=logo_url)
