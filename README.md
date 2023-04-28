@@ -6,7 +6,7 @@ This project was created by a group of vampires at Voorivex Academy to improve b
 ``` bash
  mv config.py.example config.py
  ```
- 2. change `discord_webhook` variable to your webhook url.
+ 2. change `discord_webhook`, `database`, `telegram_token` and `telegram_chatid` variable to your own values.
  3. run the program using this command.
  ```bash
  docker compose up -d
