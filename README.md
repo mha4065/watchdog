@@ -2,11 +2,13 @@
 This project was created by a group of vampires at Voorivex Academy to improve bug hunting progress :)
 
 ## Installation
- 1. Change `discord_webhook`, `database`, `telegram_token` and `telegram_chatid` variable in `config.py file` to your own values.
- 2. Run the program using this command.
- ```bash
- docker compose up -d
+ 1. Move `config.py.example` to `config.py` using this command.
+``` bash
+ mv config.py.example config.py
  ```
+ 2. Change `discord_webhook`, `database`, `telegram_token` and `telegram_chatid` variable to your own values.
+ 3. Run the program using this command.
+ 
 ## Examples
 
 Help:
