@@ -1,5 +1,5 @@
 # watchdog
-This project was created by a group of vampires to improve bug hunting progress. :)
+This project was created by a group of vampires at Voorivex Academy to improve bug hunting progress :)
 
 ## installation
  1. move `config.py.example` to `config.py` using this command.
