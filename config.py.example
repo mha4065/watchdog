@@ -1,3 +1,10 @@
-discord_webhook="test"
-mongoHost="mongo"
-mongoPort="27017"
+discord_webhook="<Your discord channel webhook>" # Enter your discord channel webhook
+discord=True # Sending new programs and scopes to your Discord server, If you don't want to use Discord, set the value of this variable to False
+mongoHost="mongo" # MongoDB host
+mongoPort="27017" # MongoDB port
+database="bb_programs" # Enter your own database name
+no_out_scope=False # If you don't want out of scope urls to be added to the database, set the value of this variable to True
+program="all" # Monitor all platforms, If you don't want to monitor all platforms, you can set them individually or multiple ("hackerone" or "hackerone","bugcrowd")
+telegram_token="<Your telegram bot token>" # Enter your telegram bot token
+telegram_chatid="@<Your telegram channel username>" # Enter your telegram channel username after @
+telegram=True # Sending new programs and scopes to your telegram channel, If you don't want to use Telegram, set the value of this variable to False
