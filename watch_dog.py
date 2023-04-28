@@ -4,6 +4,7 @@ import re
 from time import sleep
 from discord_webhook import DiscordWebhook, DiscordEmbed
 import config
+import argparse
 
 
 platforms = ['hackerone', 'bugcrowd', 'intigriti', 'yeswehack']
@@ -15,6 +16,8 @@ BUGCROWD = "https://raw.githubusercontent.com/Osb0rn3/bugbounty-targets/main/pro
 INTIGRITI = "https://raw.githubusercontent.com/Osb0rn3/bugbounty-targets/main/programs/intigriti.json"
 YESWEHACK = "https://raw.githubusercontent.com/Osb0rn3/bugbounty-targets/main/programs/yeswehack.json"
 PATH = "https://raw.githubusercontent.com/Osb0rn3/bugbounty-targets/main/programs/"
+
+NOTIF_PLATFORM = []
 
 def get_data(url:str):
     return requests.get(url).json()
@@ -292,18 +295,40 @@ def push(logo_url, program_name, program_url, platform, message:str, bounty:bool
     else:
         pass
 
+def get_args():
+    # Initializing Parser
+    parser = argparse.ArgumentParser(description ='Config your Watch-dog')
+      
+    # Adding Argument
+    parser.add_argument('-p', help='select the platform, H for HACKERONE, Y for YESWEHACK, I for INTIGRITI and B for Bugcrowd', dest='platform')
+      
+    
+    args = parser.parse_args()
+    platform = args.platform
+    if "H" in platform:
+        NOTIF_PLATFORM.append("hackerone")
+    if "I" in platform:
+        NOTIF_PLATFORM.append("intigriti")
+    if "B" in platform:
+        NOTIF_PLATFORM.append("bugcrowd")
+    if "Y" in platform:
+        NOTIF_PLATFORM.append("yeswehack")
+    
 
 def main():
+    get_args()
     for platform in platforms:
-        URL = PATH + platform + ".json"
-        result = get_data(URL)
-        clean_result = cleaner(result, platform)
-        insert_db(clean_result, platform)
+        if platform in NOTIF_PLATFORM:
+            URL = PATH + platform + ".json"
+            result = get_data(URL)
+            clean_result = cleaner(result, platform)
+            insert_db(clean_result, platform)
 
     while True:
         sleep(5)
         for platform in platforms:
-            check_changes(platform)
+            if platform in NOTIF_PLATFORM:
+                check_changes(platform)
 
 
 if __name__ == "__main__":
