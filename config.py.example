@@ -7,4 +7,4 @@ no_out_scope=False # If you don't want out of scope urls to be added to the data
 program="all" # Monitor all platforms, If you don't want to monitor all platforms, you can set them individually or multiple ("hackerone" or "hackerone","bugcrowd")
 telegram_token="<Your telegram bot token>" # Enter your telegram bot token
 telegram_chatid="@<Your telegram channel username>" # Enter your telegram channel username after @
-telegram=True # Sending new programs and scopes to your telegram channel, If you don't want to use Telegram, set the value of this variable to False
+telegram=False # Sending new programs and scopes to your telegram channel, If you don't want to use Telegram, set the value of this variable to False
