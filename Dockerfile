@@ -4,10 +4,13 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install croniter
+RUN apt-get update && apt-get -y install cron
+
+COPY crontab /etc/cron.d/crontab
 
 RUN pip install pymongo && \
-pip install discord_webhook
+    pip install discord_webhook
 
-CMD cron && echo "*/5 * * * * * root python /app/watch_dog.py" | crontab - \
-    && tail -f /var/log/cron.log
+RUN crontab crontab
+
+CMD ["cron", "-f"]

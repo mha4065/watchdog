@@ -1,0 +1,1 @@
+*/5 * * * * /usr/local/bin/python /app/watch_dog.py >> /var/log/script.log 2>&1
