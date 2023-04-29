@@ -6,8 +6,14 @@ This project was created by a group of vampires at Voorivex Academy to improve b
 ``` bash
  mv config.py.example config.py
  ```
- 2. Change `discord_webhook`, `database`, `telegram_token` and `telegram_chatid` variable to your own values.
+ 2. Change `discord_webhook`, `database` variables to your own values.
+  (Note: If you want to use Telegram, change the values of `telegram_token` and `telegram_chatid` variables)
+  
  3. Run the program using this command.
+ ```bash
+ docker compose up -d
+ ```
+ 
  
 ## Examples
 
